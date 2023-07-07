@@ -4,12 +4,12 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'https://maryna-myflix-app.herokuapp.com';
+const apiUrl = 'https://maryna-myflix-app.herokuapp.com/';
 @Injectable({
   providedIn: 'root'
 })
 
-export class UserRegistrationService {
+export class FetchApiDataService {
   // Inject the HttpClient module to the constructor params
   // This will provide HttpClient to the entire class, making it available via this.http
   constructor(private http: HttpClient) {
@@ -114,8 +114,8 @@ export class UserRegistrationService {
         }
       )
     }).pipe(
-      map(this.extractResponseData), 
-      map((data) => data.FavoriteMovies), 
+      map(this.extractResponseData),
+      map((data) => data.FavoriteMovies),
       catchError(this.handleError));
   }
 
@@ -130,7 +130,7 @@ export class UserRegistrationService {
         }
       )
     }).pipe(
-      map(this.extractResponseData), 
+      map(this.extractResponseData),
       catchError(this.handleError)
     );
   }
@@ -146,7 +146,7 @@ export class UserRegistrationService {
         }
       )
     }).pipe(
-      map(this.extractResponseData), 
+      map(this.extractResponseData),
       catchError(this.handleError)
     );
   }
@@ -162,7 +162,7 @@ export class UserRegistrationService {
         }
       )
     }).pipe(
-      map(this.extractResponseData), 
+      map(this.extractResponseData),
       catchError(this.handleError)
     );
   }
@@ -178,14 +178,14 @@ export class UserRegistrationService {
         }
       )
     }).pipe(
-      map(this.extractResponseData), 
+      map(this.extractResponseData),
       catchError(this.handleError)
     );
   }
 
 
   // Non-typed response extraction
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: any): any {
     const body = res;
     return body || {};
   }
@@ -199,6 +199,6 @@ export class UserRegistrationService {
         `Error body is: ${error.error}`);
     }
     return throwError(
-      'Something bad happened; please try again later.');
+      () => new Error('Something bad happened; please try again later.'));
   }
 }
