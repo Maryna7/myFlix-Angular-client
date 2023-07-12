@@ -1,0 +1,24 @@
+.wrapper {
+  max-width: 980px;
+  padding: 16px;
+  margin: 0 auto;
+
+  &>button {
+    margin-bottom: 16px;
+  }
+
+  &>h2,
+  &>h3 {
+    text-align: center;
+  }
+}
+
+.userInfoHolder {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+
+  p {
+    margin-bottom: 10px;
+  }
+}

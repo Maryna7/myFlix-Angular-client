@@ -1,0 +1,23 @@
+<div class="moviesList">
+  <mat-card *ngFor="let movie of movies;">
+    <img src={{movie.ImagePath}} alt={{movie.Title}} />
+    <mat-card-header>
+      <mat-card-title>{{movie.Title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions class="button-wrapper">
+      <button mat-button color="primary" (click)="openGenre(movie.Genre.Name)">
+        Genre
+      </button>
+      <button mat-button color="primary" (click)="openDirector(movie.Director.Name)">
+        Director
+      </button>
+      <button mat-button color="primary" (click)="openMovieDescription(movie.Title)">
+        Synopsis
+      </button>
+      <button mat-icon-button color="warn" (click)="clickWishlist(movie._id)">
+          <mat-icon *ngIf="fetchApiData.favoriteIds.includes(movie._id)">favorite</mat-icon>
+          <mat-icon *ngIf="!fetchApiData.favoriteIds.includes(movie._id)">favorite_border</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

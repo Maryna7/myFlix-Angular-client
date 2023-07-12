@@ -1,0 +1,16 @@
+<mat-toolbar>
+  <span>MyFlix</span>
+  <span class="spacer"></span>
+    <button (click)="toMovies()" mat-button>
+      <mat-icon>local_movies</mat-icon>
+      <span class="text">all movies</span>
+    </button>
+    <button (click)="toProfile()" mat-button>
+      <mat-icon>person</mat-icon>
+      <span class="text">profile</span>
+    </button>
+    <button (click)="logOut()" mat-button>
+      <mat-icon>logout</mat-icon>
+      <span class="text">logout</span>
+    </button>
+</mat-toolbar>

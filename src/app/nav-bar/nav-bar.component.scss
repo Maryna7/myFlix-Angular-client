@@ -1,0 +1,28 @@
+mat-toolbar {
+  background: #e91e63;
+  color: white;
+  margin-bottom: 20px;
+}
+
+button {
+  margin-right: 16px;
+  @media only screen and (max-width: 600px) {
+    min-width: 0;
+  }
+}
+
+button mat-icon{
+  @media only screen and (max-width: 600px) {
+    margin: 0;
+  }
+}
+
+.text {
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

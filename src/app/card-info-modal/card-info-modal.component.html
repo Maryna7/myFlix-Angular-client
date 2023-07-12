@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{data.title[0]}}: {{data.title[1]}}</h1>
+<div mat-dialog-content>
+  <p *ngFor="let item of data.description;">
+    <strong>{{item[0]}}: </strong>
+    <span>{{item[1]}}</span>
+  </p>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+</div>

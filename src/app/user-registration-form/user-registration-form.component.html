@@ -1,26 +1,40 @@
-<!-- src/app/user-registration-form/user-registration-form.component.html -->
-<mat-card>
+<mat-card class="userRegistrationForm">
   <mat-card-header>
     <mat-card-title>Sign Up!</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form>
+    <form [formGroup]="registerForm">
       <mat-form-field>
-        <input matInput [(ngModel)]="userData.Username" placeholder="Username" type="text" name="Username" required>
+        <input type="text" matInput formControlName="name" placeholder="Username">
+        <mat-error *ngIf="registerForm.get('name')?.hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="userData.Password" type="password" placeholder="Password" name="Password" required>
+        <input type="email" matInput formControlName="email" placeholder="Email">
+        <mat-error *ngIf="registerForm.get('email')?.hasError('email')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="userData.Email" type="email" placeholder="Email" name="Email" required>
+        <input type="password" matInput formControlName="password" placeholder="Password">
+        <mat-error *ngIf="registerForm.get('password')?.hasError('minlength')">
+          Password minimum length 6
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('password')?.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="userData.Birthday" type="date" placeholder="Birthday" name="Birthday">
+        <input matInput formControlName="birthday" type="date" placeholder="Birthday" name="Birthday">
       </mat-form-field>
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="registerUser()" color="primary">
+    <button mat-raised-button (click)="registerUser()" color="primary" [disabled]="!registerForm.valid">
       Sign Up
     </button>
   </mat-card-actions>

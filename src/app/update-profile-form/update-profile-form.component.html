@@ -1,0 +1,53 @@
+<mat-card class="updateProfileForm">
+  <mat-card-header>
+    <mat-card-title>Update my profile:</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="updateForm">
+      <mat-form-field>
+        <input type="text" matInput formControlName="name" placeholder="Username">
+        <mat-error *ngIf="updateForm.get('name')?.hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="email" matInput formControlName="email" placeholder="Email">
+        <mat-error *ngIf="updateForm.get('email')?.hasError('email')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="updateForm.get('email')?.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput formControlName="password" placeholder="Password">
+        <mat-error *ngIf="updateForm.get('password')?.hasError('minlength')">
+          Password minimum length 6
+        </mat-error>
+        <mat-error *ngIf="updateForm.get('password')?.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput formControlName="confirmation" placeholder="Confirmation password">
+        <mat-error *ngIf="updateForm.get('confirmation')?.hasError('minlength')">
+          Password minimum length 6
+        </mat-error>
+        <mat-error *ngIf="updateForm.get('confirmation')?.hasError('required')">
+          Confirmation password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="birthday" type="date" placeholder="Birthday" name="Birthday">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="updateUserInfo()" color="primary" [disabled]="!updateForm.valid">
+      Update my profile
+    </button>
+    <button mat-raised-button (click)="deleteUser()" color="primary">
+      Delete my profile
+    </button>
+  </mat-card-actions>
+</mat-card>

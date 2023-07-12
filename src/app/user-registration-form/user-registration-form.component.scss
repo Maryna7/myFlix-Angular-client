@@ -1,0 +1,15 @@
+.userRegistrationForm {
+  mat-card-header {
+    margin-bottom: 15px;
+  }
+
+  mat-card-title {
+    font-size: 20px;
+    color: #424242;
+  }
+
+  mat-form-field,
+  button {
+    width: 100%;
+  }
+}

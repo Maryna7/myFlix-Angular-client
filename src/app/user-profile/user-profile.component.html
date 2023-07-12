@@ -1,0 +1,13 @@
+<app-nav-bar></app-nav-bar>
+<div class="wrapper">
+    <h2>My profile</h2>
+  <div class="userInfoHolder">
+    <p>Name: {{fetchApiData.user?.Username}}</p>
+    <p>Email: {{fetchApiData.user?.Email}}</p>
+    <p>Birthday: {{fetchApiData.user?.Birthday | date: 'dd.MM.yyyy'}}</p>
+  </div>
+  <button mat-raised-button (click)="openUpdateProfileDialog()">Update my profile</button>
+  <h3 *ngIf="!fetchApiData.favoriteIds.length">List of my favorite movies is empty</h3>
+  <h3 *ngIf="fetchApiData.favoriteIds.length">List of my favorite movies:</h3>
+  <app-movie-card [movies]="fetchApiData.allMovies | filterProducts:fetchApiData.favoriteIds"></app-movie-card>
+</div>
