@@ -1,6 +1,24 @@
 # MyFlixAngularClient
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
+## Project description
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3. Using Angular, was built the client-side for an application called myFlix based on its existing server-side code (REST API and database), with supporting
+documentation.
+
+## Link to hosted project:
+
+Click [here](https://maryna7.github.io/myFlix-Angular-client/welcome) to go to my MyFlixAngular-App. 
+
+## Techstack
+
+- Angular version 16.1.3.
+- Node.js version 19.8.1 and npm package.
+- Angular Material 
+
+## User Stories
+
+- As a user, I want to be able to receive information on movies, directors, and genres so that I can learn more about movies I’ve watched or am interested in.
+- As a user, I want to be able to create a profile so I can save data about my favorite movies.
 
 ## Development server
 
